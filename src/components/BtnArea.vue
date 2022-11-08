@@ -1,9 +1,13 @@
 <script lang="ts" setup>
-const btnLists: {
+import { ref } from "vue";
+
+type BtnLists = {
   id: number;
   btn_icon: string;
   btn_name: string;
-}[] = [
+}[];
+
+const btnLists = ref<BtnLists>([
   {
     id: 1,
     btn_icon: "message",
@@ -14,7 +18,7 @@ const btnLists: {
     btn_icon: "calendar-check",
     btn_name: "reserve",
   },
-];
+]);
 </script>
 
 <template>
