@@ -2,12 +2,14 @@
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
 
-const open = ref<boolean>(false);
-const items: {
+type HeaderItems = {
   id: number;
   itemName: string;
   itemName_ja: string;
-}[] = [
+}[];
+
+const open = ref<boolean>(false);
+const headerItems = ref<HeaderItems>([
   {
     id: 1,
     itemName: "HOME",
@@ -33,7 +35,7 @@ const items: {
     itemName: "ACCESS",
     itemName_ja: "アクセス",
   },
-];
+]);
 </script>
 
 <template>
@@ -54,7 +56,11 @@ const items: {
       </div>
       <nav class="header_nav" :class="{ is_active: open }">
         <ul class="header_nav_list">
-          <li v-for="item in items" :key="item.id" class="header_nav_item">
+          <li
+            v-for="item in headerItems"
+            :key="item.id"
+            class="header_nav_item"
+          >
             <RouterLink
               :to="{ name: item.itemName }"
               class="header_nav_item_link"
