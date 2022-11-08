@@ -1,8 +1,12 @@
 <script lang="ts" setup>
-const items: {
+import { ref } from "vue";
+
+type Items = {
   id: number;
   itemName: string;
-}[] = [
+}[];
+
+const items = ref<Items>([
   {
     id: 1,
     itemName: "HOME",
@@ -23,7 +27,7 @@ const items: {
     id: 4,
     itemName: "ACCESS",
   },
-];
+]);
 </script>
 
 <template>
