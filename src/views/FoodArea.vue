@@ -1,18 +1,23 @@
 <script lang="ts" setup>
-const foodLists: {
+import { ref } from "vue";
+import generateImgPath from "@/lib/generateImgPath";
+
+type FoodLists = {
   id: number;
   section_name: string;
   title: string;
   desc: string;
   img_src: string;
   menuItems: string[];
-}[] = [
+}[];
+
+const foodLists = ref<FoodLists>([
   {
     id: 1,
     section_name: "bbq_section",
     title: "BBQ",
     desc: "「Green Castle」ご利用のお客様は、宿泊プランにバーベキューが含まれております。地元の新鮮な食材を用いた本格的なバーベキューが手ぶらで楽しめます。",
-    img_src: "/img/bbq_img.jpg",
+    img_src: generateImgPath("bbq_img.jpg"),
     menuItems: [
       "スペアリブ",
       "赤エビ・ホタテ",
@@ -26,7 +31,7 @@ const foodLists: {
     section_name: "breakfast_section",
     title: "BREAKFAST",
     desc: "「Green Castle」ご利用のお客様は、宿泊プランに朝食のサービスが含まれております。こだわりのベーグルサンドやホットサンドなど一日の始まりにぴったりなワンプレートをご用意しております。",
-    img_src: "/img/breakfast_img.jpg",
+    img_src: generateImgPath("breakfast_img.jpg"),
     menuItems: [
       "ホットサンド",
       "生ハムとクリームチーズのベーグルサンド",
@@ -35,7 +40,7 @@ const foodLists: {
       "スクランブルエッグプレート",
     ],
   },
-];
+]);
 </script>
 
 <template>

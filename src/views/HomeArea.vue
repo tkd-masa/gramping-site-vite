@@ -2,31 +2,52 @@
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import { RouterLink } from "vue-router";
+import { ref } from "vue";
+import generateImgPath from "@/lib/generateImgPath";
 
-const bg_imgs = [
+type BgImgs = {
+  id: number;
+  backgroundImage: string;
+}[];
+
+type SectionLists = {
+  id: number;
+  section_name: string;
+  title: string;
+  desc: string;
+  img_src: string;
+  img_class: string;
+  text_class: string;
+  link: string;
+}[];
+
+type InstaImgs = {
+  id: number;
+  img_src: string;
+}[];
+
+const bgImgs = ref<BgImgs>([
   {
     id: 1,
-    backgroundImage: "/img/hero_img.jpg",
+    backgroundImage: generateImgPath("hero_img.jpg"),
   },
   {
     id: 2,
-    class_name: "img2",
-    backgroundImage: "/img/hero_img2.jpg",
+    backgroundImage: generateImgPath("hero_img2.jpg"),
   },
   {
     id: 3,
-    class_name: "img3",
-    backgroundImage: "/img/hero_img3.jpg",
+    backgroundImage: generateImgPath("hero_img3.jpg"),
   },
-];
+]);
 
-const sectionLists = [
+const sectionLists = ref<SectionLists>([
   {
     id: 1,
     section_name: "tent_section",
     title: "TENT",
     desc: "「Green Castle」ではご利用人数に合わせた3種類の大きさのテントルームを完備しております。大自然に囲まれた空間で快適な1日をお過ごしください。",
-    img_src: "/img/tent_top.jpg",
+    img_src: generateImgPath("tent_top.jpg"),
     img_class: "tent_img",
     text_class: "tent_section_text",
     link: "/TENT",
@@ -36,39 +57,39 @@ const sectionLists = [
     section_name: "food_section",
     title: "FOOD",
     desc: "「Green Castle」をご利用のお客様に、手ぶらでも楽しんでいただけるためにバーベキューの調理器具と新鮮な食材をご用意しております。自然に囲まれた軽井沢の景色を堪能しながらぜひ大切な人とのお食事をお楽しみください。",
-    img_src: "/img/food_top.jpg",
+    img_src: generateImgPath("food_top.jpg"),
     img_class: "food_img",
     text_class: "food_section_text",
     link: "/FOOD",
   },
-];
+]);
 
-const instaImgs = [
+const instaImgs = ref<InstaImgs>([
   {
     id: 1,
-    img_src: "/img/insta_img.jpg",
+    img_src: generateImgPath("insta_img.jpg"),
   },
   {
     id: 2,
-    img_src: "/img/insta_img2.jpg",
+    img_src: generateImgPath("insta_img2.jpg"),
   },
   {
     id: 3,
-    img_src: "/img/insta_img3.jpg",
+    img_src: generateImgPath("insta_img3.jpg"),
   },
   {
     id: 4,
-    img_src: "/img/insta_img4.jpg",
+    img_src: generateImgPath("insta_img4.jpg"),
   },
   {
     id: 5,
-    img_src: "/img/insta_img5.jpg",
+    img_src: generateImgPath("insta_img5.jpg"),
   },
   {
     id: 6,
-    img_src: "/img/insta_img6.jpg",
+    img_src: generateImgPath("insta_img6.jpg"),
   },
-];
+]);
 
 const settings = {
   itemsToShow: 2,
@@ -91,7 +112,7 @@ const breakpoints = {
       <span>自然に囲まれた</span><br /><span>優雅な世界へようこそ</span>
     </h1>
     <div
-      v-for="bg_img in bg_imgs"
+      v-for="bg_img in bgImgs"
       :key="bg_img.id"
       class="bg_img"
       :style="{

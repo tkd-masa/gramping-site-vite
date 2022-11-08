@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-let showAnswer = ref<number>(0);
-const faqLists: {
+type FaqLists = {
   id: number;
   question: string;
   answer: string;
-}[] = [
+}[];
+
+let showAnswer = ref<number>(0);
+const faqLists = ref<FaqLists>([
   {
     id: 1,
     question: "宿泊予約をキャンセルした場合、キャンセル料はかかりますか？",
@@ -48,7 +50,7 @@ const faqLists: {
     question: "近隣にスーパーまたはコンビニはありますか？",
     answer: "車で5分程度のところにローソンがございます。",
   },
-];
+]);
 
 //methods
 //クリックイベントで値が変わる変数はrefを使用しないと機能しない

@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-const tentLists: {
+import { ref } from "vue";
+import generateImgPath from "@/lib/generateImgPath";
+
+type TentLists = {
   id: number;
   section_name: string;
   title: string;
@@ -9,13 +12,15 @@ const tentLists: {
   facility: string;
   bed: string;
   price: string;
-}[] = [
+}[];
+
+const tentLists = ref<TentLists>([
   {
     id: 1,
     section_name: "tent1",
     title: "JUNIOR DOME TENT",
     desc: "こちらのテントは2名様から4名様までご利用いただけます。カップルでのご利用や少数グループでのご利用におすすめです。アメニティも充実しておりますので快適にお過ごしいただけます。",
-    img_src: "/img/tent_img.jpg",
+    img_src: generateImgPath("tent_img.jpg"),
     capacity: "2名～4名",
     facility:
       "テーブル、ベッド、ソファ、冷蔵庫、ケトル、冷暖房エアコン、延長コード、歯磨きセット、wi-fi、BBQセット",
@@ -27,7 +32,7 @@ const tentLists: {
     section_name: "tent2",
     title: "TWIN DOME TENT",
     desc: "こちらのテントは2名様から6名様までご利用いただけます。少人数グループでも広々とした部屋でゆったり過ごしたいお客様にもおすすめです。アメニティも充実しておりますので快適にお過ごしいただけます。",
-    img_src: "/img/tent_img2.jpg",
+    img_src: generateImgPath("tent_img2.jpg"),
     capacity: "2名～6名",
     facility:
       "テーブル、ベッド、ソファ、冷蔵庫、ケトル、冷暖房エアコン、延長コード、歯磨きセット、wi-fi、BBQセット",
@@ -39,14 +44,14 @@ const tentLists: {
     section_name: "tent3",
     title: "LUXURY DOME TENT",
     desc: "こちらのテントは2名様から8名様までご利用いただけます。大勢のグループで、にぎやかに過ごしたいお客様におすすめです。アメニティも充実しておりますので快適にお過ごしいただけます。",
-    img_src: "/img/tent_img3.jpg",
+    img_src: generateImgPath("tent_img3.jpg"),
     capacity: "2名～8名",
     facility:
       "テーブル、ベッド、ソファ、冷蔵庫、ケトル、冷暖房エアコン、延長コード、歯磨きセット、wi-fi、BBQセット",
     bed: "ダブルベッド4台",
     price: "1人当たり1泊¥20,000～",
   },
-];
+]);
 </script>
 
 <template>

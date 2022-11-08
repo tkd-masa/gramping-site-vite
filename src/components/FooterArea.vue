@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-type Items = {
+type FooterItems = {
   id: number;
   itemName: string;
 }[];
 
-const items = ref<Items>([
+const footerItems = ref<FooterItems>([
   {
     id: 1,
     itemName: "HOME",
@@ -37,7 +37,7 @@ const items = ref<Items>([
         <img src="/img/logo.svg" alt="" />
       </div>
       <ul class="footer_nav">
-        <li v-for="item in items" :key="item.id" class="footer_nav_item">
+        <li v-for="item in footerItems" :key="item.id" class="footer_nav_item">
           <router-link :to="{ name: item.itemName }">
             {{ item.itemName }}
           </router-link>
