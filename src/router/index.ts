@@ -43,13 +43,6 @@ const routeSettings: RouteRecordRaw[] = [
     },
   },
   {
-    name: "FAQ",
-    path: "/FAQ",
-    component: () => {
-      return import("@/views/FaqArea.vue");
-    },
-  },
-  {
     name: "NotFound",
     path: "/:pathMatch(.*)*",
     component: () => {
