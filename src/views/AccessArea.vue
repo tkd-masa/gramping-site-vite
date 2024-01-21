@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import generateImgPath from "@/lib/generateImgPath";
+
+const titleBgUrl = `url(${generateImgPath("title_bg_access.jpg")})`;
+const titleBgPcUrl = `url(${generateImgPath("title_bg_access_pc.jpg")})`;
+</script>
+
 <template>
   <div class="title_area">
     <h1 class="page_title_en">ACCESS</h1>
@@ -32,7 +39,7 @@
 
 <style scoped>
 .title_area {
-  background-image: url(/img/title_bg_access.jpg);
+  background-image: v-bind(titleBgUrl);
   background-size: cover;
   background-position: center;
 }
@@ -74,7 +81,7 @@ dl dd {
 
 @media screen and (min-width: 768px) {
   .title_area {
-    background-image: url(/img/title_bg_access_pc.jpg);
+    background-image: v-bind(titleBgPcUrl);
   }
 
   .access_detail {

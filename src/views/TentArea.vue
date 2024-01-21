@@ -2,6 +2,9 @@
 import { ref } from "vue";
 import generateImgPath from "@/lib/generateImgPath";
 
+const titleBgUrl = `url(${generateImgPath("title_bg_tent.jpg")})`;
+const titleBgPcUrl = `url(${generateImgPath("title_bg_tent_pc.jpg")})`;
+
 type TentLists = {
   id: number;
   section_name: string;
@@ -109,7 +112,7 @@ p {
 }
 
 .title_area {
-  background-image: url(/img/title_bg_tent.jpg);
+  background-image: v-bind(titleBgUrl);
   background-size: cover;
   background-position: center;
 }
@@ -156,7 +159,7 @@ dl dd {
   }
 
   .title_area {
-    background-image: url(/img/title_bg_tent_pc.jpg);
+    background-image: v-bind(titleBgPcUrl);
   }
 
   .tent_section {

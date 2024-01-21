@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import generateImgPath from "@/lib/generateImgPath";
+
+const titleBgUrl = `url(${generateImgPath("title_bg_404.jpg")})`;
+const titleBgPcUrl = `url(${generateImgPath("title_bg_404_pc.jpg")})`;
+</script>
+
 <template>
   <div class="title_area">
     <h1 class="page_title_en">404</h1>
@@ -21,7 +28,7 @@ p {
   text-align: center;
 }
 .title_area {
-  background-image: url(/img/title_bg_404.jpg);
+  background-image: v-bind(titleBgUrl);
   background-size: cover;
   background-position: center;
   margin-bottom: var(--common-space);
@@ -59,7 +66,7 @@ p {
   }
 
   .title_area {
-    background-image: url(/img/title_bg_404_pc.jpg);
+    background-image: v-bind(titleBgPcUrl);
     background-position: center bottom;
   }
 
