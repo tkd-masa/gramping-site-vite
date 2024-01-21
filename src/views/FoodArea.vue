@@ -11,6 +11,8 @@ type FoodLists = {
   menuItems: string[];
 }[];
 
+const titleBgUrl = `url(${generateImgPath("title_bg_food.jpg")})`;
+const titleBgPcUrl = `url(${generateImgPath("title_bg_food_pc.jpg")})`;
 const foodLists = ref<FoodLists>([
   {
     id: 1,
@@ -114,7 +116,7 @@ ul li::before {
 }
 
 .title_area {
-  background-image: url(/img/title_bg_food.jpg);
+  background-image: v-bind(titleBgUrl);
   background-size: cover;
   background-position: center;
   margin-bottom: var(--common-space);
@@ -157,7 +159,7 @@ ul li::before {
   }
 
   .title_area {
-    background-image: url(/img/title_bg_food_pc.jpg);
+    background-image: v-bind(titleBgPcUrl);
     background-size: cover;
     background-position: center;
     margin-bottom: var(--common-space);

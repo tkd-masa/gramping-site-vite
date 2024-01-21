@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import generateImgPath from "@/lib/generateImgPath";
 
 type FaqLists = {
   id: number;
   question: string;
   answer: string;
 }[];
+
+const titleBgUrl = `url(${generateImgPath("title_bg_faq.jpg")})`;
+const titleBgPcUrl = `url(${generateImgPath("title_bg_faq_pc.jpg")})`;
 
 let showAnswer = ref<number>(0);
 const faqLists = ref<FaqLists>([
@@ -120,7 +124,7 @@ p {
 }
 
 .title_area {
-  background-image: url(/img/title_bg_faq.jpg);
+  background-image: v-bind(titleBgUrl);
   background-size: cover;
   background-position: center;
 }
@@ -194,7 +198,7 @@ p {
   }
 
   .title_area {
-    background-image: url(/img/title_bg_faq_pc.jpg);
+    background-image: v-bind(titleBgPcUrl);
     background-size: cover;
     background-position: center;
   }
